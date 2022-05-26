@@ -18,6 +18,7 @@ def disclose(filename):
 #Convert
 def convert(string):
 	file = []
+	person = None #先宣告為"無", 防止一開始沒讀到人名會當機
 	for line in string:
 		if line == 'Allen':
 			person = 'Allen'
@@ -25,9 +26,9 @@ def convert(string):
 		elif line == 'Tom':
 			person = 'Tom'
 			continue
+		if person: #如果person有值, 才做這一行
 		file.append(person + ': ' + line)
-	string = file
-	return string
+	return file
 
 #寫入
 def write(products, string):
